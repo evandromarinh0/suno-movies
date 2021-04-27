@@ -11,7 +11,9 @@ export const Container = styled.div`
   }
 
   img {
+    max-width: 157px;
     max-height: 232px;
+    object-fit: cover;
   }
 
   > div {

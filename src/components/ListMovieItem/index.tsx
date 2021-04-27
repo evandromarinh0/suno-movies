@@ -1,6 +1,5 @@
 import { Container } from "./styles";
 
-import movieCoverImg from '../../assets/testing3.png';
 import ratingIcon from '../../assets/rating.svg';
 import { Movie } from "../../types/types";
 import { useHistory } from "react-router";
@@ -8,6 +7,7 @@ import { useHistory } from "react-router";
 interface MovieItemProps {
   movie: Movie;
 }
+  
 
 export function ListMovieItem({ movie }: MovieItemProps) {
   const history = useHistory();
@@ -15,7 +15,7 @@ export function ListMovieItem({ movie }: MovieItemProps) {
   return(
     <Container>
       <button onClick={() => history.push(`/catalog/${movie.id}`)} type='button'>
-        <img src={movieCoverImg} alt="Cover"/>
+        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="Cover"/>
       </button>
       <div>
         <strong>{movie.title}</strong>

@@ -7,6 +7,12 @@ export const Container = styled.div`
   > button {
     background: none;
     border: none;
+
+    > img {
+      max-width: 157px;
+      max-height: 232px;
+      object-fit: cover;
+    }
   }
 
   & + div {

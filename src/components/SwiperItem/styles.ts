@@ -16,7 +16,9 @@ export const Content = styled.div`
 
     > img {
     flex: 1;
-    height: 20.5rem;
+    max-height: 329px;
+    max-width: 219px;
+    object-fit: cover;
     margin-top: 2rem;
   }
   }
