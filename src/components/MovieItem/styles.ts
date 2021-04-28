@@ -8,19 +8,27 @@ export const Container = styled.div`
   > button {
     background: none;
     border: none;
-  }
 
-  img {
-    max-width: 157px;
-    max-height: 232px;
-    object-fit: cover;
-
-    transition: all 0.2s;
+    position: relative;
 
     &:hover {
-      background: rgba(254, 49, 137, 0.3);
-      box-shadow: 0px 0px 25px -1px rgba(254, 49, 137, 0.37);
-      border-radius: 4px;
+      &:before {
+        content:'';
+        position: absolute;
+        width: 100%;
+        height: 232px;
+
+        z-index: 3;
+        background: rgba(254, 49, 137, 0.3);
+        box-shadow: 0px 0px 25px -1px rgba(254, 49, 137, 0.37);
+        border-radius: 0.25rem;
+      }
+    }
+
+    > img {
+      max-width: 157px;
+      max-height: 232px;
+      object-fit: cover;
     }
   }
 

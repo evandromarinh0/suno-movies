@@ -13,23 +13,31 @@ export const Content = styled.div`
   width: 100%;
 
   > button {
+    margin-top: 2rem;
     border: 0;
     background: 0;
+
+    position: relative;
+
+    &:hover {
+      &:before {
+        content:'';
+        position: absolute;
+        width: 100%;
+        height: 328px;
+
+        z-index: 3;
+        background: rgba(254, 49, 137, 0.3);
+        box-shadow: 0px 0px 25px -1px rgba(254, 49, 137, 0.37);
+        border-radius: 0.25rem;
+      }
+    }
 
     > img {
       flex: 1;
       max-height: 329px;
       max-width: 219px;
       object-fit: cover;
-      margin-top: 2rem;
-
-      transition: all 0.2s;
-
-      &:hover {
-        background: rgba(254, 49, 137, 0.3);
-        box-shadow: 0px 0px 25px -1px rgba(254, 49, 137, 0.37);
-        border-radius: 0.25rem;
-      }
     }
   }
 
