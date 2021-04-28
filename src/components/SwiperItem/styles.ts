@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import playImg from '../../assets/play.svg';
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -24,10 +26,10 @@ export const Content = styled.div`
         content:'';
         position: absolute;
         width: 100%;
-        height: 328px;
+        height: 329px;
 
         z-index: 3;
-        background: rgba(254, 49, 137, 0.3);
+        background: url(${playImg}) rgba(254, 49, 137, 0.3) no-repeat center;
         box-shadow: 0px 0px 25px -1px rgba(254, 49, 137, 0.37);
         border-radius: 0.25rem;
       }
@@ -38,6 +40,7 @@ export const Content = styled.div`
       max-height: 329px;
       max-width: 219px;
       object-fit: cover;
+      
     }
   }
 

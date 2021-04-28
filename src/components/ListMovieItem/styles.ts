@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import playImg from '../../assets/play.svg';
+
 export const Container = styled.div`
   display: flex;
   max-width: 995px;
@@ -18,7 +20,7 @@ export const Container = styled.div`
         height: 232px;
 
         z-index: 3;
-        background: rgba(254, 49, 137, 0.3);
+        background: url(${playImg}) rgba(254, 49, 137, 0.3) no-repeat center;
         box-shadow: 0px 0px 25px -1px rgba(254, 49, 137, 0.37);
         border-radius: 0.25rem;
       }
