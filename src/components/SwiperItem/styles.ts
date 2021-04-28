@@ -5,6 +5,8 @@ export const Container = styled.div`
   align-items: center;
   flex: 1;
   padding: 0 1rem;
+
+  
 `;
 
 export const Content = styled.div`
@@ -15,12 +17,20 @@ export const Content = styled.div`
     background: 0;
 
     > img {
-    flex: 1;
-    max-height: 329px;
-    max-width: 219px;
-    object-fit: cover;
-    margin-top: 2rem;
-  }
+      flex: 1;
+      max-height: 329px;
+      max-width: 219px;
+      object-fit: cover;
+      margin-top: 2rem;
+
+      transition: all 0.2s;
+
+      &:hover {
+        background: rgba(254, 49, 137, 0.3);
+        box-shadow: 0px 0px 25px -1px rgba(254, 49, 137, 0.37);
+        border-radius: 0.25rem;
+      }
+    }
   }
 
   > div {

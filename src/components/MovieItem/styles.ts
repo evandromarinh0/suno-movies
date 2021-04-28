@@ -14,6 +14,14 @@ export const Container = styled.div`
     max-width: 157px;
     max-height: 232px;
     object-fit: cover;
+
+    transition: all 0.2s;
+
+    &:hover {
+      background: rgba(254, 49, 137, 0.3);
+      box-shadow: 0px 0px 25px -1px rgba(254, 49, 137, 0.37);
+      border-radius: 4px;
+    }
   }
 
   > div {

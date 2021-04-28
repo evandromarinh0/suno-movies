@@ -12,9 +12,13 @@ interface MovieItemProps {
 export function ListMovieItem({ movie }: MovieItemProps) {
   const history = useHistory();
 
+  function handleNavigateToDetails() {
+    history.push(`/catalog/${movie.id}`)
+  }
+
   return(
     <Container>
-      <button onClick={() => history.push(`/catalog/${movie.id}`)} type='button'>
+      <button onClick={() => handleNavigateToDetails()} type='button'>
         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="Cover"/>
       </button>
       <div>

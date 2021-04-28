@@ -37,7 +37,7 @@ export function HotMovies() {
         >
           {hotMovies.map(hotMovie => (
             <SwiperSlide>
-              <SwiperItem movie={hotMovie} />
+              <SwiperItem key={hotMovie.id} movie={hotMovie} />
             </SwiperSlide>
           ))}
         </Swiper>
