@@ -1,37 +1,69 @@
 import { Header } from "../../components/Header";
 
-import testingImg from '../../assets/testing4.png';
 import ratingImg from '../../assets/rating.svg';
 
 import { Container } from './styles';
-import { useContext } from "react";
-import { MovieContext } from "../../context/MovieContext";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import api from "../../services/api";
+
+interface ParamsProps {
+  id: number;
+}
+
+interface DetailedMovieProps {
+  title: string;
+  poster_path: string;
+  genres: Array<{
+    id: number;
+    name: string;
+  }>;
+  vote_average: number;
+  overview: string;
+}
 
 export function MovieDetails() {
-  const { movies, hotMovies } = useContext(MovieContext);
-  const id = useParams<number>();
+  const route = useParams();
+  const routeParams = route as ParamsProps;
+  const [detailedMovie, setDetailedMovie] = useState<DetailedMovieProps>();
+
+  useEffect(() => {
+    async function loadMovieDetails(): Promise<void> {
+      const response = await api.get(`/movie/${routeParams.id}?api_key=36f9a2444accd8393aa91ed7c931f797`)
+      
+      setDetailedMovie(response.data);
+      console.log(response.data);
+    }
+    loadMovieDetails();
+  }, [routeParams.id]);
+
+  // /movie/{movie_id}/videos
+
 
   return(
     <>
       <Header />
       <Container>
-        <img src={testingImg} alt="Cover"/>
-        <div>
-          <strong>Solteira quase surtando</strong>
+        { detailedMovie && (
+          <>
+          <img src={`https://image.tmdb.org/t/p/w500${detailedMovie.poster_path}`} alt="Cover"/>
           <div>
-            <span>Comédia</span>
-
+            <strong>{detailedMovie.title}</strong>
             <div>
-              <img src={ratingImg} alt="Rating" />
-              <span>8.4</span>
+              <span>{detailedMovie.genres[0].name}, {detailedMovie.genres[1].name}</span>
+  
+              <div>
+                <img src={ratingImg} alt="Rating" />
+                <span>{detailedMovie.vote_average}</span>
+              </div>
             </div>
+            <span>Sinopse</span>
+            <p>
+              {detailedMovie.overview}
+            </p>
           </div>
-          <span>Sinopse</span>
-          <p>
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-          </p>
-        </div>
+          </>
+        )}
       </Container>
     </>
   );

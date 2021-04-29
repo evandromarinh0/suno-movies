@@ -36,8 +36,8 @@ export function HotMovies() {
           onSwiper={(swiper) => console.log(swiper)}
         >
           {hotMovies.map(hotMovie => (
-            <SwiperSlide>
-              <SwiperItem key={hotMovie.id} movie={hotMovie} />
+            <SwiperSlide key={hotMovie.id}>
+              <SwiperItem movie={hotMovie} />
             </SwiperSlide>
           ))}
         </Swiper>
