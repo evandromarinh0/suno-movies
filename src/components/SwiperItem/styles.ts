@@ -69,12 +69,11 @@ export const Rating = styled.div`
   align-items: center;
 
   img {
-    font-size: 1rem;
     margin-right: 0.5rem;
   }
 
   .grade {
-    margin-top: 0.03rem;
+    padding-top: 0.25rem;
     font-size: 1rem;
     font-weight: 400;
   }
