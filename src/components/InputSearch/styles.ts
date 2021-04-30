@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
+import playImg from '../../assets/play.svg';
+
 export const Container = styled.form`
   width: 100%;
-  height: 22.5rem;
+  height: 21.5rem;
   background: var(--dark-gray);
   border-top: 1px solid var(--darkest-gray);
   padding: 2rem 16rem;
@@ -27,8 +29,8 @@ export const Container = styled.form`
   }
 
   > div {
-    max-width: 18.875rem;
-    max-height: 11.9375rem;
+    max-width: 21rem;
+    max-height: 13rem;
     background: var(--medium-to-dark-gray);
     margin-top: 1rem;
     padding: 1rem;
@@ -38,16 +40,45 @@ export const Container = styled.form`
     display: flex;
     align-items: center;
 
+    > button {
+      position: relative;
+      &:hover {
+        &:before {
+          content:'';
+          position: absolute;
+          width: 98px;
+          height: 147px;
+
+          z-index: 3;
+          background: url(${playImg}) rgba(254, 49, 137, 0.3) no-repeat center;
+          box-shadow: 0px 0px 25px -1px rgba(254, 49, 137, 0.37);
+          border-radius: 0.25rem;
+        }
+      }
+
+      > img {
+        width: 6.125rem;
+        height: 9.1875rem;
+        object-fit: cover;
+        border-radius: 0.25rem;
+      }
+    }
+
 
     > div {
       margin-left: 1rem;
-      padding-bottom: 2rem;
 
       > strong {
+        padding-right: 0.5rem;
         display: block;
+        max-width: 195px;
         font-size: 1.375rem;
         font-weight: 500;
         color: var(--light-gray);
+        
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       > span {

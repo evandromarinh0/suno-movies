@@ -1,13 +1,20 @@
-import { Container } from "./styles";
+import { useContext } from "react";
+import { MovieContext } from "../../context/MovieContext";
 
 import ratingImg from '../../assets/rating.svg';
+import noImgImg from '../../assets/no-cover.jpg';
 
-import testingImg from '../../assets/testing5.png';
-import { useState } from "react";
+import { Container } from "./styles";
+import { useHistory } from "react-router";
 
 export function InputSearch() {
-  const [searchValue, setSearchValue] = useState('');
-  console.log(searchValue);
+  const { searchValue, setSearchValue, searchedMovies } = useContext(MovieContext);
+  const history = useHistory();
+
+  function handleNavigateToDetails() {
+    history.push(`/catalog/${searchedMovies?.id}`);
+    setSearchValue('');
+  }
 
   return(
     <Container>
@@ -15,20 +22,28 @@ export function InputSearch() {
         value={searchValue}
         onChange={e => setSearchValue(e.target.value)}
         type='text' 
-        placeholder='Ex: Interestellar' 
+        placeholder='Ex: Tenet' 
       />
 
-      <div>
-        <img src={testingImg} alt="Cover"/>
-        <div>
-          <strong>The Specials</strong>
-          <span>Drama, Comédia</span>
+      { searchedMovies && searchValue && (
           <div>
-            <img src={ratingImg} alt=""/>
-            <span>8.4</span>
+            <button onClick={() => handleNavigateToDetails()}>
+              {searchedMovies.poster_path ? (
+                <img src={`https://image.tmdb.org/t/p/w500${searchedMovies.poster_path}`} alt="Cover"/>
+              ) : (
+                <img style={{ objectFit: 'contain' }} src={noImgImg} alt="Cover"/>
+              )}
+            </button>
+            <div>
+              <strong>{searchedMovies.title}</strong>
+              <span>Gênero</span>
+              <div>
+                <img src={ratingImg} alt=""/>
+                <span>{searchedMovies.vote_average}</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        )}
     </Container>
   );
 }

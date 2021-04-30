@@ -3,10 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import ratingImg from '../../assets/rating.svg';
+import noImgImg from '../../assets/no-cover2.jpg';
 import api from "../../services/api";
 
-import { Container } from './styles';
 import { PinkButton } from "../../components/PinkButton";
+import { Container } from './styles';
+
 
 interface ParamsProps {
   id: number;
@@ -61,7 +63,11 @@ export function MovieDetails() {
       <Container>
         { detailedMovie && (
           <div>
-            <img src={`https://image.tmdb.org/t/p/w500${detailedMovie.poster_path}`} alt="Cover"/>
+            { detailedMovie.poster_path ? (
+              <img src={`https://image.tmdb.org/t/p/w500${detailedMovie.poster_path}`} alt="Cover"/>
+            ) : (
+              <img src={noImgImg} alt="NoCover"/>
+            )}
             <div>
               <strong>{detailedMovie.title}</strong>
               <div>
