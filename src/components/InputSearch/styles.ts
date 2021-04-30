@@ -67,6 +67,7 @@ export const Container = styled.form`
 
     > div {
       margin-left: 1rem;
+      padding-bottom: 3.125rem;
 
       > strong {
         padding-right: 0.5rem;
@@ -75,6 +76,7 @@ export const Container = styled.form`
         font-size: 1.375rem;
         font-weight: 500;
         color: var(--light-gray);
+
         
         white-space: nowrap;
         overflow: hidden;
