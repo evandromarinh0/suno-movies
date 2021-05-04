@@ -52,7 +52,6 @@ export function MovieDetails() {
       const response = await api.get(`/movie/${routeParams.id}/videos?api_key=36f9a2444accd8393aa91ed7c931f797`)
       
       setDetailedMovieVideo(response.data);
-      console.log(response.data);
     }
     loadMovieDetailsVideo();
   }, [routeParams.id]);

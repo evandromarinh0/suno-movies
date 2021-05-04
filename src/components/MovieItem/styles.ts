@@ -46,6 +46,9 @@ export const Container = styled.div`
       font-size: 1.3rem;
       font-weight: 400;
       color: var(--light-gray);
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     > span {

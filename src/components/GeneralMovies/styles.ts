@@ -45,6 +45,17 @@ export const ButtonSection = styled.div`
   > div + div {
     margin-left: auto;
   }
+
+  @media(max-width: 720px) {
+    > div {
+      margin: 0 auto;
+      margin-top: 1rem;
+    }
+
+    > div + div {
+      display: none;
+    }
+  }
 `;
 
 export const GenreSelection = styled.div`

@@ -11,9 +11,16 @@ import { Container, ButtonSection, Content, MovieSection, More } from "./styles"
 import { GenresList } from "../GenresList";
 
 export function GeneralMovies() {
-  const [listType, setListType] = useState(false);
+  const { movies, renderMoreMovies } = useContext(MovieContext);
+  const [listType, setListType] = useState(true);
   const [isGenreOpen, setIsGenreOpen] = useState(false);
-  const { movies } = useContext(MovieContext);
+
+  const moviesPerPage = 20;
+  const currentPage = 1;
+
+  const indexOfLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+  const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
 
   function toggleGenreOpen() {
     setIsGenreOpen(!isGenreOpen)
@@ -27,7 +34,7 @@ export function GeneralMovies() {
     <Container id="catalog">
       <header>
         <img src={pinkCircleIcon} alt="Topic"/>
-        <span>CATÁLOGO</span><span>DA SEMANA</span>
+        <span>CATÁLOGO</span><span>COMPLETO</span>
       </header>
 
       <Content>
@@ -41,7 +48,7 @@ export function GeneralMovies() {
               <GenresList />
             )}
 
-            <PinkButton style={{ cursor: 'not-allowed' }}>mais populares</PinkButton>
+            <PinkButton>mais populares</PinkButton>
           </div>
           <div>
             <Button onClick={toggleListType} >{listType ? 'em grid' : 'em lista'}</Button>
@@ -49,20 +56,22 @@ export function GeneralMovies() {
         </ButtonSection>
         { listType ? (
           <MovieSection style={{ display: 'flex', flexDirection: 'column'}}>
-            {movies.map(movie => (
+            {currentMovies.map(movie => (
               <ListMovieItem key={movie.id} movie={movie} />
             ))}
           </MovieSection>
         ) : (
           <MovieSection>
-            {movies.map(movie => (
+            {currentMovies.map(movie => (
               <GridMovieItem key={movie.id} movie={movie} />
             ))}
           </MovieSection>
         )}
       </Content>
       <More>
-        <PinkButton>carregar mais</PinkButton>
+        <a href="#catalog">
+          <PinkButton onClick={renderMoreMovies}>carregar mais</PinkButton>
+        </a>
       </More>
     </Container>
   );

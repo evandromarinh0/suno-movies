@@ -6,6 +6,10 @@ export const Container = styled.div`
   display: flex;
   max-width: 995px;
 
+  @media(max-width: 720px) {
+    padding: 0 2rem;
+  }
+
   > button {
     background: none;
     border: none;
@@ -40,7 +44,6 @@ export const Container = styled.div`
   > div {
     margin-left: 2rem;
     width: 100%;
-    
 
     > strong {
       font-size: 1.325rem;
@@ -66,12 +69,31 @@ export const Container = styled.div`
       }
     }
 
-    div + span {
+    > div + span {
       font-size: 1rem;
       line-height: 1.5rem;
       font-weight: 300;
       color: var(--not-so-dark-gray);
       margin-top: 1rem;
     }
+
+    @media(max-width: 720px) {
+      > div + span {
+        display: none;
+      }
+    }
+  }
+`;
+
+export const MobileOverview = styled.span`
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 300;
+  color: var(--not-so-dark-gray);
+  padding: 0 2rem;
+  margin-bottom: 3.5rem;
+
+  @media(min-width: 1080px) {
+    display: none;
   }
 `;

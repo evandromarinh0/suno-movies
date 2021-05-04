@@ -7,6 +7,7 @@ export const Container = styled.div`
   mix-blend-mode: normal;
 
   position: relative;
+
 `;
 
 export const Content = styled.div`
@@ -79,5 +80,34 @@ export const Content = styled.div`
         filter: brightness(0.8)
       }
     }
+
+    @media(max-width: 720px) {
+      a {
+        display: none;
+      }
+    }
   }
+
+
+  @media(max-width: 720px) {
+    > button {
+      background: transparent;
+      border: 0;
+      transition: 0.2s all;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media(min-width: 1080px) {
+    > button {
+      display: none;
+    }
+  }
+
 `;

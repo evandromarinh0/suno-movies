@@ -16,6 +16,15 @@ export const Container = styled.form`
   position: absolute;
   z-index: 10;
 
+  @media(max-width: 720px) {
+    padding: 0 1rem 0 2rem;
+    left: 0.5rem;
+    top: 103%;
+    position: absolute;
+    z-index: 10;
+    height: 25rem;
+  }
+
   input {
     width: 100%;
     border: 0;
@@ -29,8 +38,6 @@ export const Container = styled.form`
   }
 
   > div {
-    max-width: 21rem;
-    max-height: 13rem;
     background: var(--medium-to-dark-gray);
     margin-top: 1rem;
     padding: 1rem;
@@ -40,8 +47,14 @@ export const Container = styled.form`
     display: flex;
     align-items: center;
 
+    @media(min-width: 1080px) {
+      max-width: 21rem;
+      max-height: 13rem;
+    }
+
     > button {
       position: relative;
+      
       &:hover {
         &:before {
           content:'';
@@ -61,6 +74,27 @@ export const Container = styled.form`
         height: 9.1875rem;
         object-fit: cover;
         border-radius: 0.25rem;
+      }
+
+      @media(max-width: 720px) {
+        > img {
+          height: 12.5rem;
+          width: 9.5rem;
+        }
+
+        &:hover {
+          &:before {
+            content:'';
+            position: absolute;
+            width: 9.5rem;
+            height: 12.5rem;
+
+            z-index: 3;
+            background: url(${playImg}) rgba(254, 49, 137, 0.3) no-repeat center;
+            box-shadow: 0px 0px 25px -1px rgba(254, 49, 137, 0.37);
+            border-radius: 0.25rem;
+          }
+        }
       }
     }
 
@@ -89,6 +123,13 @@ export const Container = styled.form`
         color: var(--pink);
       }
 
+      @media(max-width: 720px) {
+        > span {
+          display: block;
+          margin: 0.5rem 0;
+        }
+      }
+
       > div {
         display: flex;
         align-items: center;
@@ -104,6 +145,11 @@ export const Container = styled.form`
           color: var(--light-gray);
         }
       }
+    }
+
+    @media(max-width: 720px) {
+      margin-top: 3rem;
+      width: 98%;
     }
   }
 `;

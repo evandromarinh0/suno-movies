@@ -69,6 +69,25 @@ export const Container = styled.div`
         color: var(--not-so-dark-gray)
       }
     }
+
+    @media(max-width: 720px) {
+      display: flex;
+      flex-direction: column;
+      padding: 0 2rem;
+
+      > img {
+        width: 100%;
+        height: 760px;
+        align-self: center;
+      }
+
+      > div {
+        strong {
+          margin-top: 2rem;
+          text-align: start;
+        }
+      }
+    }
   } 
 
   > div + div {
@@ -79,6 +98,7 @@ export const Container = styled.div`
     margin-top: 5rem;
 
     > strong {
+      width: 100px;
       font-size: 1.82rem;
       color: var(--light-gray);
       font-weight: 600;
@@ -93,6 +113,14 @@ export const Container = styled.div`
 
       > iframe {
         border: 0;
+      }
+
+      @media(max-width: 720px) {
+        > iframe {
+          width: 480px;
+          height: 360px;
+          margin: 0;
+        }
       }
     }
   }

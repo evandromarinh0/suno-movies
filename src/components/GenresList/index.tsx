@@ -5,13 +5,19 @@ export function GenresList() {
     <Container>
       <ul>
         <li>
-          Romance
+          Action
         </li>
         <li>
-          Drama
+          Adventure
         </li>
         <li>
-          Suspense
+          Animation
+        </li>
+        <li>
+          Comedy
+        </li>
+        <li>
+          Crime
         </li>
       </ul>
     </Container>

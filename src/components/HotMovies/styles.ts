@@ -7,6 +7,10 @@ export const Container = styled.div`
   background: url(${backgroundImg}) no-repeat center;
   background-size: cover;
   height: 44.875rem;
+
+  @media(max-width: 720px) {
+    background: var(--darker-gray);
+  }
 `;
 
 export const Content = styled.div`

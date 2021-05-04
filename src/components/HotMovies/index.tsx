@@ -18,6 +18,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 export function HotMovies() {
   const { hotMovies } = useContext(MovieContext);
 
+  const width = window.screen.width;
+
   return(
     <Container id='home'>
       <Content>
@@ -28,12 +30,10 @@ export function HotMovies() {
 
         <Swiper
           spaceBetween={25}
-          slidesPerView={4}
+          slidesPerView={width >= 1080 ? 4 : 1}
           width={1120}
           navigation
           pagination={{ clickable: true }}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
         >
           {hotMovies.map(hotMovie => (
             <SwiperSlide key={hotMovie.id}>
