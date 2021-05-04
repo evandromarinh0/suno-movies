@@ -6,12 +6,19 @@ export const Container = styled.div`
   padding-bottom: 16rem;
 
   > header {
+    width: 100%;
+
     display: flex;
     align-items: center;
+    
     background: var(--dark-gray);
-    padding: 4rem 4rem 4rem 9rem;
+    padding: 4rem 0;
     height: 6.687rem;
     box-shadow: 0px 4px 25px 4px rgba(0, 0, 0, 0.3);
+
+    @media(min-width: 1080px) {
+      padding: 4rem 4rem 4rem 8.5rem;
+    }
 
     > img {
       margin-left: 12%;

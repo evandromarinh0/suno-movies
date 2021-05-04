@@ -10,6 +10,7 @@ export const Container = styled.div`
     > img {
       width: 20.875rem;
       height: 30.875rem;
+      object-fit: cover;
     }
 
     > div {
@@ -38,7 +39,6 @@ export const Container = styled.div`
         > div {
           display: flex;
           align-items: center;
-
           > img {
             margin-right: 1rem;
             height: 1.5rem;
@@ -74,7 +74,6 @@ export const Container = styled.div`
       display: flex;
       flex-direction: column;
       padding: 0 2rem;
-
       > img {
         width: 100%;
         height: 760px;
@@ -98,13 +97,18 @@ export const Container = styled.div`
     margin-top: 5rem;
 
     > strong {
-      width: 100px;
       font-size: 1.82rem;
       color: var(--light-gray);
       font-weight: 600;
       padding-bottom: 1rem;
       border-bottom: 2px solid var(--pink);
       margin-bottom: 4rem;
+    }
+
+    @media (max-width: 720px) {
+      strong {
+        width: 85px;
+      }
     }
 
     > div {
